@@ -57,3 +57,22 @@
 .horizon-hero{position:relative;overflow:hidden;padding:70px 0 100px;min-height:390px}.horizon-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 80% 40%,#234d7759,transparent 48%)}.horizon-hero h1{font-size:clamp(50px,8vw,108px);letter-spacing:-.07em;line-height:1.02;margin:22px 0}.horizon-hero>p:last-of-type{max-width:630px;font-size:19px;color:#b1c5d9}.horizon-star{position:absolute;right:8%;top:10%;font-size:clamp(90px,15vw,220px);color:#ffad6d;opacity:.25;text-shadow:0 0 70px #ff985b}.horizon-projects{display:grid;gap:20px}.horizon-build{position:relative;padding:clamp(25px,4vw,55px);border:1px solid var(--line);background:linear-gradient(125deg,#13263c,#0b1627)}.horizon-build-meta{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#ffad78;font-size:11px;font-weight:700;letter-spacing:.14em}.horizon-build h2{font-size:clamp(35px,5vw,65px);letter-spacing:-.06em;margin:24px 0 10px}.horizon-lead{max-width:730px;font:500 clamp(18px,2vw,24px)/1.5 'Space Grotesk';color:#d7eaff}.horizon-build ul{max-width:800px;color:#afc1d6;padding-left:22px;margin:24px 0}.horizon-build li{margin-bottom:10px}.horizon-outro{text-align:center;padding:70px 0}.horizon-outro p{font-size:11px;color:#ffad78;letter-spacing:.2em;margin-bottom:20px}
 
 .flight-deck-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding-bottom:70px}.flight-deck-grid article{border:1px solid var(--line);padding:clamp(24px,3vw,42px);background:linear-gradient(130deg,#152b42,#0b1525)}.flight-deck-grid article>span{font-size:11px;letter-spacing:.17em;color:#ffad78}.flight-deck-grid h2{font-size:clamp(26px,3vw,39px);line-height:1.15;margin:22px 0}.flight-deck-grid p{color:#afc4d7;margin:14px 0}@media(max-width:650px){.flight-deck-grid{grid-template-columns:1fr}}
+
+/* Fullscreen illustrated landing page. Hotspots align to the artwork itself. */
+body:has(.map-home){overflow:hidden}
+body:has(.map-home) .site-header,body:has(.map-home) footer{display:none}
+body:has(.map-home) main.wrap{max-width:none;width:100%;height:100svh;padding:0;margin:0}
+.map-home{height:100svh;width:100%;display:grid;place-items:center;overflow:hidden;background:#030b19}
+.map-stage{position:relative;aspect-ratio:1648/928;width:min(100vw,177.5862svh);max-height:100svh;isolation:isolate;overflow:hidden;flex:none}
+.map-fallback,.map-final-image{position:absolute;inset:0;background-position:center;background-size:100% 100%;background-repeat:no-repeat}
+.map-fallback{background-image:url('/ventacularity-world.svg')}
+.map-final-image{background-image:url('/ventacularity-final.png')}
+.map-target{position:absolute;z-index:3;transform:translate(-50%,-50%);border-radius:12px;cursor:pointer;transition:background .2s,box-shadow .2s;outline-offset:0}
+.map-target:hover,.map-target:focus-visible{background:rgba(101,191,255,.09);box-shadow:0 0 0 2px rgba(158,222,255,.85),0 0 28px rgba(73,162,244,.55)}
+.map-target:focus-visible{outline:3px solid #fff}
+.map-social{position:absolute;top:0;z-index:4;height:6%;width:3.5%;border-radius:8px}
+.map-social:hover,.map-social:focus-visible{background:rgba(120,197,255,.2);outline:2px solid #a3dfff}
+.map-social-github{left:88.4%}.map-social-linkedin{left:91.6%}.map-social-email{left:94.8%}
+.map-mobile-links{display:none}
+@media(max-aspect-ratio:4/5){body:has(.map-home){overflow:auto}body:has(.map-home) main.wrap{height:auto;min-height:100svh}.map-home{height:auto;min-height:100svh;display:block;padding-top:12svh}.map-stage{width:100vw;height:auto;max-height:none}.map-mobile-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:20px 16px 35px}.map-mobile-links a{padding:13px 12px;border:1px solid #41698c;border-radius:7px;background:#0d1e31;color:#d8efff;font-size:13px}}
+@media(prefers-reduced-motion:reduce){.map-target{transition:none}}
