@@ -1,19 +1,4 @@
 import Link from "next/link";
-import ImagePlaceholder from "./ImagePlaceholder";
 import type { Project } from "@/lib/content";
-
-export default function ProjectRow({ project }: { project: Project }) {
-  return (
-    <article className="project">
-      <div>
-        <h3 className="project-title">
-          <Link href={`/projects/${project.slug}/`}>{project.title}</Link>
-        </h3>
-        <p className="project-context">{project.context}</p>
-        <p className="project-summary">{project.summary}</p>
-        <p className="tags">{project.tags.join(", ")}</p>
-      </div>
-      <ImagePlaceholder label={project.images[0]} />
-    </article>
-  );
-}
+const tones=["circuit","flight","analog","signal","energy","processor"];
+export default function ProjectRow({project}:{project:Project}){const tone=tones[["bushing-test-bench","rc-aircraft-avionics","smartwatch-lcd-driver","voice-spoof-detector","solar-charger","risc-v-cpu"].indexOf(project.slug)]??"circuit";return <article className="project-card"><Link href={`/projects/${project.slug}/`} className="project-card-link" aria-label={`Read about ${project.title}`}><div className={`project-visual visual-${tone}`} aria-hidden="true"><div className="visual-rings"/><div className="visual-chip"><span>V / S</span></div><span className="visual-caption">{project.tags[0]}</span><span className="visual-arrow">↗</span></div><div className="project-copy"><p className="project-context">{project.context}</p><h3 className="project-title">{project.title}</h3><p className="project-summary">{project.summary}</p><div className="project-tags">{project.tags.slice(0,3).map(tag=><span key={tag}>{tag}</span>)}</div></div></Link></article>}
