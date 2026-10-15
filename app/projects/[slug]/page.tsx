@@ -35,7 +35,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
 
   return (
     <>
-      <div className="page-head">
+      <div className="page-head station-compact-head">
         <Link href="/projects/" className="back">
           All projects
         </Link>
@@ -47,38 +47,10 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
         <p className="tags">{project.tags.join(", ")}</p>
       </div>
 
-      <div style={{ marginTop: "2rem" }}>
-        <ImagePlaceholder label={heroImage} wide />
-      </div>
-
-      <section className="section" aria-labelledby="details-title">
-        <h2 id="details-title" className="section-title">
-          Details
-        </h2>
-        <div className="section-body">
-          <ul className="bullets" style={{ marginTop: 0 }}>
-            {project.highlights.map((h) => (
-              <li key={h}>{h}</li>
-            ))}
-          </ul>
-          <p className="note" style={{ marginTop: "1.5rem" }}>
-            A longer write-up with photos, schematics, and results is coming.
-          </p>
-        </div>
+      <section className="project-detail-grid" aria-label="Project details">
+        <div className="project-detail-visuals"><ImagePlaceholder label={heroImage} wide />{gallery.length > 0 && <div className="project-detail-gallery">{gallery.map(label => <ImagePlaceholder key={label} label={label}/>)}</div>}</div>
+        <article className="project-detail-info"><p className="section-overline">DESIGN / IMPLEMENTATION / RESULTS</p><h2>Engineering highlights</h2><ul className="bullets">{project.highlights.map(h => <li key={h}>{h}</li>)}</ul><p className="note">Schematics, photos, and final test results will be added to this gallery.</p></article>
       </section>
-
-      {gallery.length > 0 ? (
-        <section className="section" aria-labelledby="images-title">
-          <h2 id="images-title" className="section-title">
-            Images
-          </h2>
-          <div className="section-body gallery">
-            {gallery.map((label) => (
-              <ImagePlaceholder key={label} label={label} />
-            ))}
-          </div>
-        </section>
-      ) : null}
 
       <nav className="pager" aria-label="More projects">
         {prev ? <Link href={`/projects/${prev.slug}/`}>Previous: {prev.title}</Link> : <span />}
