@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site, experience, education, skills } from "@/lib/content";
 const stops=[
  {id:"project-lab",name:"Project Lab",sub:"Engineering projects",href:"/projects/",x:65,y:29,icon:"⌘",number:"01"},
- {id:"flight-deck",name:"Flight Deck",sub:"Cal Aero + Space Enterprise",href:"/projects/rc-aircraft-avionics/",x:38,y:21,icon:"✈",number:"02"},
+ {id:"flight-deck",name:"Flight Deck",sub:"Cal Aero + Space Enterprise",href:"/flight-deck/",x:38,y:21,icon:"✈",number:"02"},
  {id:"mission-log",name:"Mission Log",sub:"Experience · Hitachi + IEEE",href:"#experience",x:14,y:41,icon:"◈",number:"03"},
  {id:"workbench",name:"Workbench",sub:"Technical toolkit + classes",href:"#toolkit",x:21,y:80,icon:"⌁",number:"04"},
  {id:"competition-zone",name:"Competition Zone",sub:"Table tennis · Team USA",href:"/table-tennis/",x:70,y:79,icon:"◉",number:"05"},
