@@ -23,7 +23,7 @@ export default function Home() {
      {stations.map(s=><Link key={s.name} href={s.href} className="map-target" style={{left:`${s.x}%`,top:`${s.y}%`,width:`${s.w}%`,height:`${s.h}%`}} aria-label={`${s.number} / ${s.name} — open station`} title={s.name} />)}
      <a className="map-social map-social-github" href={site.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub" />
      <a className="map-social map-social-linkedin" href={site.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" />
-     <Link className="map-social map-social-email" href="/contact/" aria-label="Comms Station — contact information" title="Comms Station" />
+     <a className="map-social map-social-email" href="mailto:ventacularity@berkeley.edu" aria-label="Email" title="Email" />
    </div>
    <nav className="map-mobile-links" aria-label="Portfolio stations">{stations.map(s=><Link key={s.name} href={s.href}>{s.number} / {s.name} ↗</Link>)}</nav>
  </section>;
