@@ -1,69 +1,53 @@
 import Link from "next/link";
-import PhaseTrace from "@/components/PhaseTrace";
-import ProjectRow from "@/components/ProjectRow";
-import { awards, education, experience, projects, site, skills, tableTennis } from "@/lib/content";
+import { projects, site } from "@/lib/content";
+
+const destinations = [
+  { id:"projects", href:"/projects/", number:"01", label:"PROJECT LAB", title:"Engineering Projects", detail:"Circuits · embedded systems · FPGA", icon:"⌁" },
+  { id:"aero", href:"/projects/rc-aircraft-avionics/", number:"02", label:"FLIGHT DECK", title:"Aerospace & Avionics", detail:"Cal Aero · propulsion · flight electronics", icon:"✈" },
+  { id:"experience", href:"/#experience", number:"03", label:"MISSION LOG", title:"Experience", detail:"Hitachi Energy · Berkeley · IEEE", icon:"◈" },
+  { id:"skills", href:"/#skills", number:"04", label:"WORKBENCH", title:"Skills & Education", detail:"Analog · digital · hardware", icon:"⌘" },
+  { id:"tennis", href:"/table-tennis/", number:"05", label:"COMPETITION ZONE", title:"Table Tennis", detail:"Team USA · national championships", icon:"◉" },
+  { id:"contact", href:"/#contact", number:"06", label:"COMMS STATION", title:"Get in Touch", detail:"Let's build something together", icon:"↗" },
+];
 
 export default function Home() {
-  return (
-    <>
-      <section className="hero cinematic-hero">
-        <div className="hero-orbit hero-orbit-one" aria-hidden="true" />
-        <div className="hero-orbit hero-orbit-two" aria-hidden="true" />
-        <div className="hero-grid" aria-hidden="true" />
-        <div className="hero-content">
-          <div className="eyebrow"><span className="status-dot" /> UC BERKELEY · ELECTRICAL ENGINEERING & COMPUTER SCIENCE</div>
-          <p className="hero-kicker">BUILDING WHAT'S NEXT</p>
-          <h1 className="hero-name">VED <span>SHETH.</span></h1>
-          <p className="hero-headline">From silicon to sky.</p>
-          <p className="hero-description">I design analog circuits, embedded systems, and the hardware that connects ambitious ideas to the real world.</p>
-          <div className="hero-actions">
-            <Link href="/projects/" className="button button-primary">Explore my work <span aria-hidden="true">↗</span></Link>
-            <a href="#about" className="button button-ghost">Get to know me <span aria-hidden="true">↓</span></a>
-          </div>
-          <div className="hero-metrics" aria-label="Highlights">
-            <div><strong>10<span>+</span></strong><small>Years on Team USA</small></div>
-            <div><strong>03<span>rd</span></strong><small>SAE Aero Design West · 2025</small></div>
-            <div><strong>2027</strong><small>UC Berkeley EECS</small></div>
-          </div>
-        </div>
-        <div className="hero-art" aria-hidden="true">
-          <div className="hero-planet" />
-          <div className="hero-flight-path" />
-          <div className="hero-art-label">VENTACULARITY <span> // ENGINEERING THE FUTURE</span></div>
-          <div className="hero-crosshair">+</div>
-        </div>
-        <div className="hero-bottom"><span>01 / INTRODUCTION</span><span>SCROLL TO EXPLORE ↓</span></div>
-      </section>
-
-      <section className="intro-panel" id="about">
-        <div className="section-overline">THE PERSON BEHIND THE PROJECTS</div>
-        <div className="intro-layout">
-          <h2>Curiosity, <em>engineered.</em></h2>
-          <div><p className="intro-big">{site.intro}</p><p className="intro-muted">I'm an EECS student at UC Berkeley, avionics lead at Cal Aero, and a Team USA table tennis athlete. Whether it's an analog IC, a flight-ready electrical system, or a national championship match, I love solving hard problems with great teams.</p><a href={site.linkedin} className="text-link" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a></div>
-        </div>
-      </section>
-
-      <section className="showcase-section" aria-labelledby="projects-title">
-        <div className="section-heading"><div><div className="section-overline">01 / SELECTED WORK</div><h2 id="projects-title">Ideas made <em>real.</em></h2></div><Link href="/projects/" className="text-link">All projects ↗</Link></div>
-        <div className="featured-projects">{projects.slice(0, 4).map((p, i) => <ProjectRow key={p.slug} project={p} />)}</div>
-      </section>
-
-      <section className="experience-section" aria-labelledby="experience-title">
-        <div className="section-heading"><div><div className="section-overline">02 / THE JOURNEY</div><h2 id="experience-title">Where I've <em>built.</em></h2></div></div>
-        <div className="experience-grid">{experience.filter(job => job.org !== "Cal Table Tennis Club" && job.org !== "USA Table Tennis").map((job, i) => <article key={job.org} className="experience-card"><span className="card-index">0{i + 1}</span><h3>{job.org}</h3><p className="experience-role">{job.roles[0].title}</p><p className="experience-period">{job.roles[0].period}</p><p className="experience-description">{job.bullets[0]}</p></article>)}</div>
-      </section>
-
-      <section className="skills-section" aria-labelledby="skills-title">
-        <div className="section-overline">03 / TOOLKIT</div><h2 id="skills-title">The tools behind <em>the work.</em></h2>
-        <div className="skill-grid">{skills.map(s => <div className="skill-group" key={s.group}><h3>{s.group}</h3><p>{s.items}</p></div>)}</div>
-        <div className="education-line"><span>EDUCATION</span><strong>{education.school}</strong><span>{education.degree} · Class of 2027</span></div>
-      </section>
-
-      <section className="athlete-feature" aria-labelledby="athlete-title">
-        <div className="athlete-number" aria-hidden="true">USA</div><div className="athlete-content"><div className="section-overline">04 / BEYOND ENGINEERING</div><h2 id="athlete-title">Precision is a <em>mindset.</em></h2><p>{tableTennis.headline}</p><p>Ten years representing Team USA, and a national collegiate championship-winning team captain. Competition has shaped how I lead, collaborate, and perform under pressure.</p><Link href="/table-tennis/" className="button button-ghost">My table tennis journey ↗</Link></div>
-      </section>
-
-      <section className="contact-section" id="contact" aria-labelledby="contact-title"><div className="section-overline">05 / LET'S CONNECT</div><h2 id="contact-title">Let's build something <em>remarkable.</em></h2><p>{site.availability}</p><a href={`mailto:${site.email}`} className="contact-email">{site.email} <span aria-hidden="true">↗</span></a><div className="contact-links"><a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a><a href={site.github} target="_blank" rel="noreferrer">GitHub ↗</a></div></section>
-    </>
-  );
+  return <>
+    <section className="art-map" aria-labelledby="map-title">
+      <div className="map-stars" aria-hidden="true" />
+      <div className="map-glow" aria-hidden="true" />
+      <div className="map-horizon" aria-hidden="true" />
+      <div className="map-planet" aria-hidden="true"><div className="map-planet-rim"/></div>
+      <div className="map-rocket" aria-hidden="true">✦<span>──────</span></div>
+      <div className="map-scene-desk" aria-hidden="true">
+        <div className="scene-monitor scene-monitor-main"><span>V / S</span><i>ENGINEERING SYSTEMS</i><b>⌁ ━━━ ⌁</b></div>
+        <div className="scene-monitor scene-monitor-side"><span>0110<br/>1011<br/>1100</span></div>
+        <div className="scene-desk-surface" />
+        <div className="scene-circuit">◈ ── ◇ ── ◈</div>
+      </div>
+      <div className="map-intro">
+        <p className="map-eyebrow">WELCOME TO MY WORLD <span> / 001</span></p>
+        <h1 id="map-title">VENTA<span>CULARITY</span><span className="map-period">.</span></h1>
+        <p className="map-subtitle">The intersection of circuits, flight, and competition.</p>
+        <p className="map-instructions"><span className="map-pulse" /> Explore the scene — select a destination</p>
+      </div>
+      <div className="map-destinations" aria-label="Explore portfolio sections">
+        {destinations.map(d=><Link key={d.id} href={d.href} className={`map-hotspot hotspot-${d.id}`}><span className="hotspot-icon" aria-hidden="true">{d.icon}</span><span className="hotspot-copy"><small>{d.number} / {d.label}</small><strong>{d.title}</strong><em>{d.detail}</em></span><span className="hotspot-arrow" aria-hidden="true">↗</span></Link>)}
+      </div>
+      <div className="map-bottom"><span>VED SHETH / UC BERKELEY EECS</span><span>AN INTERACTIVE PORTFOLIO</span></div>
+    </section>
+    <section className="map-understory" id="experience">
+      <div className="map-understory-heading"><span>MISSION LOG / EXPERIENCE</span><h2>Built through <em>curiosity.</em></h2></div>
+      <div className="map-quick-grid">
+        <article><span>2026</span><h3>Hitachi Energy</h3><p>Digital Hardware R&D Intern — transformer monitoring, test automation, and measurement systems.</p></article>
+        <article><span>2025 — PRESENT</span><h3>Cal Aero</h3><p>Avionics Lead — electrical architecture and integration for competition aircraft.</p></article>
+        <article><span>2025 — 2026</span><h3>Berkeley IEEE</h3><p>Hardware Engineer — secure FPGA RISC-V computing.</p></article>
+      </div>
+    </section>
+    <section className="map-understory" id="skills">
+      <div className="map-understory-heading"><span>WORKBENCH / SKILLS</span><h2>My technical <em>toolkit.</em></h2></div>
+      <div className="map-skill-chips">{["Analog & mixed-signal","PCB design","Embedded systems","FPGA / SystemVerilog","Cadence Virtuoso","KiCad & Altium","Python / C / C++","Test & measurement"].map(s=><span key={s}>{s}</span>)}</div>
+      <p className="map-education">B.S. Electrical Engineering & Computer Science · UC Berkeley · Expected 2027</p>
+    </section>
+    <section className="map-contact" id="contact"><p>COMMS STATION / 006</p><h2>Have a mission in mind?</h2><a href={`mailto:${site.email}`}>{site.email} ↗</a><div><a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a><a href={site.github} target="_blank" rel="noreferrer">GitHub ↗</a></div></section>
+  </>;
 }
