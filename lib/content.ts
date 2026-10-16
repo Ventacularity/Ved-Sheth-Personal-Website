@@ -83,10 +83,10 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "smartwatch-lcd-driver",
-    title: "LCD driver for a smartwatch",
+    title: "Liquid crystal display (LCD) driver for a smartwatch",
     context: "Cadence Virtuoso, gpdk045",
     summary:
-      "A two-stage Miller-compensated op-amp that drives a 272x340 LCD pixel array at 60 Hz from a 1.8 V supply.",
+      "Designed an analog circuit to control the pixels of a smartwatch’s liquid crystal display (LCD), the screen technology used to show images and text. The circuit uses a two-stage amplifier to drive a 272 × 340 pixel display at 60 Hz.",
     tags: ["Cadence Virtuoso", "gpdk045", "Analog design"],
     highlights: [
       "Designed a telescopic cascode first stage and a class AB inverter output stage.",
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     title: "Voice spoof detector",
     context: "Python, scikit-learn, XGBoost",
     summary:
-      "A classifier that flags neural voice-conversion artifacts using physics-based audio features.",
+      "Voice spoofing is when a fake or AI-altered recording imitates someone’s voice, potentially making it sound like they said something they never said. I built a machine-learning detector that analyzes audio signals to distinguish real speech from artificially converted voices.",
     tags: ["Python", "scikit-learn", "XGBoost", "Signal processing"],
     highlights: [
       "Engineered features from spectral and temporal analysis of the signal, aimed at the artifacts neural voice conversion leaves behind.",
