@@ -344,3 +344,13 @@ main.wrap:has(.aero-gallery){max-width:1650px}
 .tt-profile-strip>a img{display:block;width:82px;height:82px;object-fit:contain;object-position:center top;border-radius:9px}
 @media(max-width:850px){.about-split,.aero-gallery{grid-template-columns:1fr}.project-detail-equal{grid-template-columns:1fr}.project-explainer-grid{grid-template-columns:1fr}.project-results{grid-template-columns:1fr}}
 @media(max-width:650px){.tt-profile-strip>a img{width:65px;height:65px}}
+
+
+/* Full-viewport in-page image viewer shared by all portfolio stations */
+.image-lightbox{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;padding:clamp(20px,4vw,55px);background:rgba(2,7,16,.95);backdrop-filter:blur(14px);cursor:zoom-out}
+.image-lightbox img{display:block;max-width:100%;max-height:calc(100dvh - 110px);width:auto;height:auto;object-fit:contain;box-shadow:0 15px 65px rgba(0,0,0,.5);cursor:default}
+.image-lightbox-close{position:absolute;top:12px;right:clamp(15px,3vw,45px);border:1px solid #607e99;background:#15283c;color:#fff;font-size:30px;line-height:1;width:46px;height:46px;border-radius:50%;cursor:pointer;z-index:1}
+.image-lightbox-close:hover{background:#285477}
+.image-lightbox-hint{font-size:12px;color:#b2c5d8;text-align:center}
+#main a:has(img){cursor:zoom-in}
+#main .tt-profile-strip>a:has(img){cursor:pointer}
