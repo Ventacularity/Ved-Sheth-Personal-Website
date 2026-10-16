@@ -32,6 +32,11 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
   const prev = index > 0 ? projects[index - 1] : null;
   const next = index < projects.length - 1 ? projects[index + 1] : null;
   const [heroImage, ...gallery] = project.images;
+  const githubUrl: Record<string, string> = {
+    "voice-spoof-detector": "https://github.com/Ventacularity/Spoof-Detection",
+    "solar-charger": "https://github.com/Ventacularity/Solar-Charger",
+  };
+  const projectRepo = githubUrl[slug];
 
   return (
     <>
@@ -45,6 +50,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
           {project.context}
         </p>
         <p className="tags">{project.tags.join(", ")}</p>
+        {projectRepo && <a className="text-link" href={projectRepo} target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a>}
       </div>
 
       <section className="project-detail-grid" aria-label="Project details">
