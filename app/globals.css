@@ -157,3 +157,16 @@ main.wrap:has(.project-detail-grid){max-width:1600px}
 .project-detail-info .bullets{font-size:14px;line-height:1.6}
 .project-detail-info .note{font-size:12px;border-top:1px solid var(--line);padding-top:14px;margin-top:18px}
 @media(max-width:850px){.project-detail-grid{grid-template-columns:1fr}}
+
+
+/* Space Enterprise: concise, text-first mission and avionics tiles */
+.seb-sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.seb-sections>section{padding:15px;border:1px solid #304960;background:#0b1b2d}
+.seb-sections>section:last-child{grid-column:1/-1}
+.seb-sections h3{font-size:15px;color:#b9dfff;margin:0 0 8px}
+.seb-sections p,.seb-sections li{font-size:12px;line-height:1.6;color:#b3c9db}
+.seb-sections ul{padding-left:18px;margin:0}
+.seb-sections li{margin:0 0 7px}
+.seb-subsystems{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.seb-subsystems span{padding:11px 8px;text-align:center;background:#142b42;border:1px solid #385876;color:#d4eaff;font-size:11px}
+@media(max-width:750px){.seb-sections{grid-template-columns:1fr}.seb-sections>section:last-child{grid-column:auto}.seb-subsystems{grid-template-columns:repeat(2,minmax(0,1fr))}}
