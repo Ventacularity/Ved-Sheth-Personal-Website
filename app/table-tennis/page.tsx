@@ -97,7 +97,7 @@ export default function TableTennisPage() {
       <p className="page-lead">Two journeys, one sport. Representing Team USA while competing, leading, and coaching at the collegiate level.</p>
     </div>
     <section className="tt-timeline-section" aria-label="Table tennis career timeline">
-      <div className="tt-profile-strip"><img src="/TableTennis/NationalTeam_ProfilePicture.png" alt="Team USA table tennis athlete portrait" loading="lazy"/><div><span className="section-overline">TEAM USA × CAL TABLE TENNIS</span><strong>A decade of competition, a lifetime of learning.</strong><p>From international tournaments to leading Berkeley's collegiate club.</p></div></div><div className="tt-timeline-heading"><div><p className="section-overline">2021 — PRESENT</p><h2>Parallel paths. Shared passion.</h2></div><div className="tt-legend"><span><i className="tt-key tt-key-cal"/>Cal Table Tennis</span><span><i className="tt-key tt-key-usa"/>Team USA</span><span><i className="tt-key tt-key-coach"/>Coaching</span></div></div>
+      <div className="tt-profile-strip"><a href="/TableTennis/NationalTeam_ProfilePicture.png" target="_blank" rel="noopener noreferrer" aria-label="Enlarge Team USA athlete portrait"><img src="/TableTennis/NationalTeam_ProfilePicture.png" alt="Team USA table tennis athlete portrait" loading="lazy"/></a><div><span className="section-overline">TEAM USA × CAL TABLE TENNIS</span><strong>A decade of competition, a lifetime of learning.</strong><p>From international tournaments to leading Berkeley's collegiate club.</p></div></div><div className="tt-timeline-heading"><div><p className="section-overline">2021 — PRESENT</p><h2>Parallel paths. Shared passion.</h2></div><div className="tt-legend"><span><i className="tt-key tt-key-cal"/>Cal Table Tennis</span><span><i className="tt-key tt-key-usa"/>Team USA</span><span><i className="tt-key tt-key-coach"/>Coaching</span></div></div>
       <div className="tt-timeline-scroll" tabIndex={0} aria-label="Scroll horizontally through table tennis history">
         <div className="tt-timeline">
           <div className="tt-lane-label tt-lane-label-cal">CAL TABLE TENNIS <span>Berkeley, California</span></div>
@@ -106,14 +106,14 @@ export default function TableTennisPage() {
           <div className="tt-rail tt-rail-usa" aria-hidden="true"/>
           {years.map((year, index) => <div className="tt-year" key={year.year} style={{ gridColumn: index + 1 }}>
             <div className="tt-year-cal">
-              {year.cal ? <article className="tt-event tt-event-cal"><p className="tt-event-kicker">CAL TABLE TENNIS CLUB</p><h3>{year.cal.role}</h3>{year.calPhoto && <figure className="tt-inline-photo"><img src={year.calPhoto.src} alt={year.calPhoto.caption} loading="lazy"/><figcaption>{year.calPhoto.caption}</figcaption></figure>}<ul>{year.cal.details.map((d, i) => <li key={i}>{d}</li>)}</ul></article> : <div className="tt-empty" aria-hidden="true"/>}
+              {year.cal ? <article className="tt-event tt-event-cal"><p className="tt-event-kicker">CAL TABLE TENNIS CLUB</p><h3>{year.cal.role}</h3>{year.calPhoto && <figure className="tt-inline-photo"><a href={year.calPhoto.src} target="_blank" rel="noopener noreferrer" aria-label={`Enlarge ${year.calPhoto.caption}`}><img src={year.calPhoto.src} alt={year.calPhoto.caption} loading="lazy"/></a><figcaption>{year.calPhoto.caption}</figcaption></figure>}<ul>{year.cal.details.map((d, i) => <li key={i}>{d}</li>)}</ul></article> : <div className="tt-empty" aria-hidden="true"/>}
             </div>
             <div className="tt-junction tt-junction-cal"><span className="tt-node tt-node-cal"/></div>
             <div className="tt-year-coaching"><span className="tt-year-number">{year.year}</span>
               {year.coaching && <article className="tt-coaching"><span className="tt-coach-tag">COACHING</span><h3>{year.coaching.club}</h3><p>{year.coaching.place}</p><p>{year.coaching.date}</p></article>}
             </div>
             <div className="tt-junction tt-junction-usa"><span className="tt-node tt-node-usa"/></div>
-            <div className="tt-year-usa"><article className="tt-event tt-event-usa"><p className="tt-event-kicker">TEAM USA</p><ResultList items={year.usa}/>{year.usaPhotos && <div className="tt-usa-photos">{year.usaPhotos.map(photo => <figure className="tt-inline-photo" key={photo.src}><img src={photo.src} alt={photo.caption} loading="lazy"/><figcaption>{photo.caption}</figcaption></figure>)}</div>}</article></div>
+            <div className="tt-year-usa"><article className="tt-event tt-event-usa"><p className="tt-event-kicker">TEAM USA</p><ResultList items={year.usa}/>{year.usaPhotos && <div className="tt-usa-photos">{year.usaPhotos.map(photo => <figure className="tt-inline-photo" key={photo.src}><a href={photo.src} target="_blank" rel="noopener noreferrer" aria-label={`Enlarge ${photo.caption}`}><img src={photo.src} alt={photo.caption} loading="lazy"/></a><figcaption>{photo.caption}</figcaption></figure>)}</div>}</article></div>
           </div>)}
         </div>
       </div>
