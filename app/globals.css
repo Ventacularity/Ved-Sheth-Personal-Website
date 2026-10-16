@@ -374,3 +374,6 @@ main.wrap:has(.aero-gallery){max-width:1650px}
 .flight-deck-grid .seb-card .seb-mission{max-width:1150px}
 .flight-deck-grid .seb-card .seb-contribution-list{max-width:1200px}
 @media(max-width:650px){.flight-deck-grid>article{padding:20px}.flight-deck-grid .aero-media-preview img{height:230px}}
+
+/* Position the Cal Table Tennis label immediately above its blue rail, matching Team USA. */
+.tt-lane-label-cal{top:455px}
