@@ -244,3 +244,8 @@ main.wrap:has(.tt-timeline-section){max-width:1680px}
 .tt-timeline-foot{color:#9bb0c5;font-size:11px;margin-top:9px}
 .tt-timeline-foot .tt-medal{margin-left:10px}
 @media(max-width:650px){.tt-timeline{min-width:1370px}.tt-timeline-heading h2{font-size:24px}}
+
+
+/* Timeline years: centered diagonally across the connector between rails. */
+.tt-year-coaching .tt-year-number{position:absolute;top:22px;left:50%;transform:translateX(-50%) rotate(-35deg);transform-origin:center;background:#091728;border:1px solid #375979;border-radius:4px;padding:3px 9px;font:700 13px 'Space Grotesk',sans-serif;color:#d6edff;letter-spacing:.08em;z-index:4;box-shadow:0 0 0 5px #091728}
+.tt-year-coaching:has(.tt-coaching) .tt-year-number{top:9px}
