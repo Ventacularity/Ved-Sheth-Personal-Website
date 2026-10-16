@@ -1,10 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 import { getProject, projects } from "@/lib/content";
 
 type Params = { slug: string };
+const media: Record<string, { src: string; alt: string; label: string }[]> = {
+  "smartwatch-lcd-driver": [
+    { src: "/LCD_Driver/LCD_Driver.png", alt: "Smartwatch LCD analog driver architecture and results graphic", label: "Smartwatch LCD driver · schematic-level design" },
+  ],
+  "voice-spoof-detector": [
+    { src: "/Spoofer/Spectrograms.png", alt: "Spectrogram comparisons for voice spoof detection", label: "Spectrogram analysis" },
+    { src: "/Spoofer/DSP Feature Analysis.png", alt: "Digital signal processing feature analysis", label: "DSP feature analysis" },
+  ],
+  "solar-charger": [
+    { src: "/SolarCharger/Board.png", alt: "Assembled solar charger PCB", label: "Assembled hardware" },
+    { src: "/SolarCharger/Layout.png", alt: "Solar charger printed circuit board layout", label: "PCB layout" },
+    { src: "/SolarCharger/Schematic.png", alt: "Solar charger circuit schematic", label: "Circuit schematic" },
+  ],
+};
 
 export function generateStaticParams(): Params[] {
   return projects.map((p) => ({ slug: p.slug }));
@@ -31,7 +44,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
   const index = projects.findIndex((p) => p.slug === slug);
   const prev = index > 0 ? projects[index - 1] : null;
   const next = index < projects.length - 1 ? projects[index + 1] : null;
-  const [heroImage, ...gallery] = project.images;
+  const projectMedia = media[slug] ?? [];
   const githubUrl: Record<string, string> = {
     "voice-spoof-detector": "https://github.com/Ventacularity/Spoof-Detection",
     "solar-charger": "https://github.com/Ventacularity/Solar-Charger",
@@ -54,8 +67,8 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
       </div>
 
       <section className="project-detail-grid" aria-label="Project details">
-        <div className="project-detail-visuals"><ImagePlaceholder label={heroImage} wide />{gallery.length > 0 && <div className="project-detail-gallery">{gallery.map(label => <ImagePlaceholder key={label} label={label}/>)}</div>}</div>
-        <article className="project-detail-info"><p className="section-overline">DESIGN / IMPLEMENTATION / RESULTS</p><h2>Engineering highlights</h2><ul className="bullets">{project.highlights.map(h => <li key={h}>{h}</li>)}</ul><p className="note">Schematics, photos, and final test results will be added to this gallery.</p></article>
+        <div className="project-detail-visuals">{projectMedia.map((item, index) => <figure className={index === 0 ? "portfolio-figure portfolio-figure-primary" : "portfolio-figure"} key={item.src}><a href={item.src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${item.label} full size`}><img src={item.src} alt={item.alt} loading={index === 0 ? "eager" : "lazy"}/></a><figcaption>{item.label} · Click to enlarge ↗</figcaption></figure>)}</div>
+        <article className="project-detail-info"><p className="section-overline">DESIGN / IMPLEMENTATION / RESULTS</p><h2>Engineering highlights</h2><ul className="bullets">{project.highlights.map(h => <li key={h}>{h}</li>)}</ul><p className="note">Explore the original project media at full resolution using the image links.</p></article>
       </section>
 
       <nav className="pager" aria-label="More projects">
