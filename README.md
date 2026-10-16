@@ -6,21 +6,6 @@ I'm an Electrical Engineering and Computer Sciences student at **UC Berkeley** (
 
 ![Ventacularity portfolio homepage](public/ventacularity-final.png)
 
-## Explore the portfolio
-
-The homepage is an illustrated engineering workspace with eight interactive stations:
-
-| Station | Explore |
-| --- | --- |
-| **01 · Project Lab** | Engineering projects, from analog LCD drivers to voice-spoof detection and solar-powered charging hardware |
-| **02 · Flight Deck** | Cal Aero SAE and Space Enterprise at Berkeley, including aircraft photos and flight footage |
-| **03 · Mission Log** | Industry and research experience at Hitachi Energy and IEEE SIEEECURE |
-| **04 · Workbench** | EECS coursework, technical skills, and areas of study |
-| **05 · Competition Zone** | Team USA table tennis, collegiate competition, club leadership, and coaching |
-| **06 · About Me** | My background and what drives me to build |
-| **07 · Comms Station** | Ways to get in touch |
-| **08 · Into the Horizon** | Current builds, technical interests, and future goals |
-
 ## Built with
 
 - **Next.js** (App Router), **React**, and **TypeScript**
