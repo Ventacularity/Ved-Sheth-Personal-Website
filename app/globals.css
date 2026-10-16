@@ -362,3 +362,15 @@ main.wrap:has(.aero-gallery){max-width:1650px}
 .tt-rail-cal{top:488px}
 .tt-rail-usa{top:762px}
 .tt-lane-label-usa{top:729px}
+
+
+/* Flight Deck: give each aerospace organization the full content width.
+   Cal Aero stays first; Space Enterprise follows below. */
+.flight-deck-grid{grid-template-columns:minmax(0,1fr);gap:22px}
+.flight-deck-grid>article{min-width:0;padding:clamp(24px,3vw,44px)}
+.flight-deck-grid>article>p{max-width:1050px;line-height:1.7}
+.flight-deck-grid .aero-media-preview{max-width:1080px}
+.flight-deck-grid .aero-media-preview img{height:clamp(240px,34vw,430px);object-fit:contain;background:#071322}
+.flight-deck-grid .seb-card .seb-mission{max-width:1150px}
+.flight-deck-grid .seb-card .seb-contribution-list{max-width:1200px}
+@media(max-width:650px){.flight-deck-grid>article{padding:20px}.flight-deck-grid .aero-media-preview img{height:230px}}
