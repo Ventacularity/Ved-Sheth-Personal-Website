@@ -38,6 +38,7 @@ const years: Year[] = [
   },
   {
     year: "2023",
+    calPhoto: { src: "/TableTennis/NCTTA2024.jpeg", caption: "2024 Collegiate Nationals · first year" },
     cal: { role: "Competitive Team Captain / Student Athlete", details: ["Joined Cal's competitive team · Aug 2023", "Led and competed with the collegiate squad", "2023–2024 · Collegiate Nationals · Team Silver", "2023–2024 · Collegiate Nationals · Singles Silver"] },
     usa: [
       { label: "US Open · U21 Singles", medal: "bronze" },
@@ -47,7 +48,7 @@ const years: Year[] = [
   },
   {
     year: "2024",
-    calPhoto: { src: "/TableTennis/NCTTA2024.jpeg", caption: "2024 Collegiate Nationals" },
+
     usaPhotos: [{ src: "/TableTennis/PanAm2024.jpeg", caption: "2024 Pan American Youth Championships" }],
     cal: { role: "Secretary", details: ["Aug 2024 – May 2025", "2024–2025 · Collegiate Nationals · Team Gold", "2024–2025 · Collegiate Nationals · Singles Silver"] },
     usa: [
@@ -63,6 +64,7 @@ const years: Year[] = [
   {
     year: "2025",
     usaPhotos: [{ src: "/TableTennis/FISU2025.jpeg", caption: "2025 FISU World University Games" }, { src: "/TableTennis/WorldCup2025.jpeg", caption: "2025 ITTF Mixed World Cup" }],
+    calPhoto: { src: "/TableTennis/NCTTA2026.jpeg", caption: "2026 Collegiate Nationals · co-presidency" },
     cal: { role: "Co-President", details: ["May 2025 – Jul 2026", "2025–2026 · Collegiate Nationals · Team Silver", "2025–2026 · Collegiate Nationals · Singles Silver"] },
     coaching: { club: "ICC Table Tennis", place: "Milpitas, CA", date: "Summer 2025" },
     usa: [
@@ -72,7 +74,7 @@ const years: Year[] = [
   },
   {
     year: "2026",
-    calPhoto: { src: "/TableTennis/NCTTA2026.jpeg", caption: "2026 Collegiate Nationals" },
+
     cal: { role: "President", details: ["Aug 2026 – present", "Run practices, open play events, and club socials"] },
     coaching: { club: "Carolina International Table Tennis", place: "Apex, NC", date: "Summer 2026" },
     usa: [
@@ -97,7 +99,7 @@ export default function TableTennisPage() {
       <p className="page-lead">Two journeys, one sport. Representing Team USA while competing, leading, and coaching at the collegiate level.</p>
     </div>
     <section className="tt-timeline-section" aria-label="Table tennis career timeline">
-      <div className="tt-profile-strip"><a href="/TableTennis/NationalTeam_ProfilePicture.png" target="_blank" rel="noopener noreferrer" aria-label="Enlarge Team USA athlete portrait"><img src="/TableTennis/NationalTeam_ProfilePicture.png" alt="Team USA table tennis athlete portrait" loading="lazy"/></a><div><span className="section-overline">TEAM USA × CAL TABLE TENNIS</span><strong>A decade of competition, a lifetime of learning.</strong><p>From international tournaments to leading Berkeley's collegiate club.</p></div></div><div className="tt-timeline-heading"><div><p className="section-overline">2021 — PRESENT</p><h2>Parallel paths. Shared passion.</h2></div><div className="tt-legend"><span><i className="tt-key tt-key-cal"/>Cal Table Tennis</span><span><i className="tt-key tt-key-usa"/>Team USA</span><span><i className="tt-key tt-key-coach"/>Coaching</span></div></div>
+      <div className="tt-profile-strip"><a href="https://www.worldtabletennis.com/playerDescription?playerId=134486" target="_blank" rel="noopener noreferrer" aria-label="View my World Table Tennis player profile"><img src="/TableTennis/NationalTeam_ProfilePicture.png" alt="Team USA table tennis athlete portrait" loading="lazy"/></a><div><span className="section-overline">TEAM USA × CAL TABLE TENNIS</span><strong>A decade of competition, a lifetime of learning.</strong><p>From international tournaments to leading Berkeley's collegiate club.</p></div></div><div className="tt-timeline-heading"><div><p className="section-overline">2021 — PRESENT</p><h2>Parallel paths. Shared passion.</h2></div><div className="tt-legend"><span><i className="tt-key tt-key-cal"/>Cal Table Tennis</span><span><i className="tt-key tt-key-usa"/>Team USA</span><span><i className="tt-key tt-key-coach"/>Coaching</span></div></div>
       <div className="tt-timeline-scroll" tabIndex={0} aria-label="Scroll horizontally through table tennis history">
         <div className="tt-timeline">
           <div className="tt-lane-label tt-lane-label-cal">CAL TABLE TENNIS <span>Berkeley, California</span></div>
