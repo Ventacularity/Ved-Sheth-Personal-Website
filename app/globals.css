@@ -358,7 +358,7 @@ main.wrap:has(.aero-gallery){max-width:1650px}
 
 /* Keep taller collegiate leadership cards fully inside the upper timeline lane. */
 .tt-year{grid-template-rows:440px 48px 225px 48px auto}
-.tt-year-cal{align-items:start}
+.tt-year-cal{align-items:end}
 .tt-rail-cal{top:488px}
 .tt-rail-usa{top:762px}
 .tt-lane-label-usa{top:729px}
