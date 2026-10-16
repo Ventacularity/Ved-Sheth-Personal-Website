@@ -64,7 +64,7 @@ const years: Year[] = [
   {
     year: "2025",
     usaPhotos: [{ src: "/TableTennis/FISU2025.jpeg", caption: "2025 FISU World University Games" }, { src: "/TableTennis/WorldCup2025.jpeg", caption: "2025 ITTF Mixed World Cup" }],
-    calPhoto: { src: "/TableTennis/NCTTA2026.jpeg", caption: "2026 Collegiate Nationals · co-presidency" },
+    calPhoto: { src: "/TableTennis/NCTTA2026.jpeg", caption: "2026 Collegiate Nationals · Teams Final" },
     cal: { role: "Co-President", details: ["May 2025 – Jul 2026", "2025–2026 · Collegiate Nationals · Team Silver", "2025–2026 · Collegiate Nationals · Singles Silver"] },
     coaching: { club: "ICC Table Tennis", place: "Milpitas, CA", date: "Summer 2025" },
     usa: [
