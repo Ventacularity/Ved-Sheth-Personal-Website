@@ -377,3 +377,10 @@ main.wrap:has(.aero-gallery){max-width:1650px}
 
 /* Position the Cal Table Tennis label immediately above its blue rail, matching Team USA. */
 .tt-lane-label-cal{top:455px}
+
+/* Mission Log: feature the Hitachi internship above IEEE, both full width. */
+.mission-grid{grid-template-columns:minmax(0,1fr);gap:22px}
+.mission-grid>.mission-card{padding:clamp(24px,3vw,44px)}
+.mission-grid .mission-intro{max-width:1100px}
+.mission-grid .mission-media{max-width:1250px}
+@media(max-width:650px){.mission-grid>.mission-card{padding:20px}}
