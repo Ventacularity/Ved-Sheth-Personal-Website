@@ -83,7 +83,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "smartwatch-lcd-driver",
-    title: "Liquid crystal display (LCD) driver for a smartwatch",
+    title: "LCD driver for a smartwatch",
     context: "Cadence Virtuoso, gpdk045",
     summary:
       "Designed an analog circuit to control the pixels of a smartwatch’s liquid crystal display (LCD), the screen technology used to show images and text. The circuit uses a two-stage amplifier to drive a 272 × 340 pixel display at 60 Hz.",
