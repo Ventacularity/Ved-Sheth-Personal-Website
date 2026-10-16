@@ -290,3 +290,57 @@ main.wrap:has(.tt-timeline-section){max-width:1680px}
 .tt-usa-photos .tt-inline-photo img{height:75px}
 @media(max-width:750px){.mission-media-hitachi{grid-template-columns:repeat(2,minmax(0,1fr))}.project-detail-visuals{grid-template-columns:1fr}.portfolio-figure-primary{grid-column:auto}.tt-profile-strip>img{width:65px;height:65px}}
 @media(prefers-reduced-motion:reduce){.project-visual-photo img{transition:none}}
+
+
+/* Station refinements: readable research media, equal visual weights, and wide About page */
+main.wrap:has(.about-split){max-width:1700px}
+.about-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(26px,4vw,72px);align-items:start;margin:12px 0 65px}
+.about-split article{min-width:0}
+.about-split article h2{margin-top:0}
+.about-split article p{max-width:none}
+.about-split article .button{margin-top:22px}
+main.wrap:has(.lcd-full-art){max-width:1900px}
+.lcd-full-art{margin:12px 0 45px}
+.lcd-full-art img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+.project-detail-expanded{grid-template-columns:1fr;gap:18px}
+.project-detail-equal{grid-template-columns:repeat(2,minmax(0,1fr))}
+.project-detail-equal .portfolio-figure-primary{grid-column:auto}
+.project-detail-equal .portfolio-figure img{width:100%;height:clamp(220px,29vw,400px);object-fit:contain}
+.project-detail-equal .portfolio-figure{display:flex;flex-direction:column}
+.project-detail-equal .portfolio-figure a{display:grid;place-items:center;flex:1;background:#081524}
+.project-detail-equal .portfolio-figure figcaption{flex:none}
+.project-explainer{border:1px solid #28445f;background:linear-gradient(145deg,#11243a,#0b1728);padding:clamp(20px,2.5vw,35px)}
+.project-explainer h2{font-size:clamp(24px,3vw,38px);margin:8px 0 12px}
+.project-explainer>p:not(.section-overline){color:#bed1e1;font-size:14px;line-height:1.75;max-width:1100px}
+.project-explainer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}
+.project-explainer-grid article{padding:18px;background:#081626;border:1px solid #2b4964}
+.project-explainer-grid h3{font-size:16px;color:#9bd2ff;margin-bottom:8px}
+.project-explainer-grid p,.project-caveat p{font-size:13px;line-height:1.7;color:#b7cbdb}
+.project-explainer-grid strong,.project-caveat strong{color:#eaf5ff}
+.project-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.project-results>div{display:flex;flex-direction:column;gap:5px;border-left:3px solid #ff9c63;padding:9px 15px;background:#0a1b2d}
+.project-results strong{font:700 clamp(27px,3.2vw,44px) 'Space Grotesk';color:#f4f9ff}
+.project-results span{font-size:12px;color:#acc8df}
+.project-explainer .project-method-note{color:#8eaac1;font-size:12px}
+.solar-flow{display:flex;align-items:stretch;flex-wrap:wrap;gap:8px;margin:20px 0}
+.solar-flow span{flex:1 1 155px;background:#102d3e;border:1px solid #35748c;padding:12px;font-size:12px;color:#c5e9f6;text-align:center}
+.solar-flow b{align-self:center;color:#ffae79}
+.project-caveat{border-left:3px solid #ffad78;background:#261d1b;padding:16px 19px;margin-top:14px}
+.project-caveat>strong{display:block;margin-bottom:5px}
+.aero-media-preview{margin-top:16px}
+.aero-media-preview>a{display:block}
+.aero-media-preview img{display:block;width:100%;height:clamp(170px,19vw,270px);object-fit:cover;border:1px solid #36536b}
+.aero-media-preview p{font-size:12px;color:#9db8ce;margin-top:8px}
+.aero-media-preview p a{color:#8ed1ff}
+main.wrap:has(.aero-gallery){max-width:1650px}
+.aero-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:55px}
+.aero-gallery .portfolio-figure img,.aero-gallery .portfolio-figure video{display:block;width:100%;height:clamp(260px,31vw,460px);object-fit:contain;background:#071322}
+.aero-gallery .portfolio-figure video{object-fit:contain}
+.aero-gallery .portfolio-figure figcaption{font-size:13px}
+.tt-inline-photo img,.tt-usa-photos .tt-inline-photo img{object-fit:contain;object-position:center top;background:#071321}
+.tt-inline-photo a{display:block;cursor:zoom-in}
+.tt-inline-photo a:hover img{filter:brightness(1.14)}
+.tt-profile-strip>a{display:block;flex:none}
+.tt-profile-strip>a img{display:block;width:82px;height:82px;object-fit:contain;object-position:center top;border-radius:9px}
+@media(max-width:850px){.about-split,.aero-gallery{grid-template-columns:1fr}.project-detail-equal{grid-template-columns:1fr}.project-explainer-grid{grid-template-columns:1fr}.project-results{grid-template-columns:1fr}}
+@media(max-width:650px){.tt-profile-strip>a img{width:65px;height:65px}}
