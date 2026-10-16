@@ -1,137 +1,30 @@
 import Link from "next/link";
-import PhaseTrace from "@/components/PhaseTrace";
-import ProjectRow from "@/components/ProjectRow";
-import {
-  awards,
-  education,
-  experience,
-  projects,
-  site,
-  skills,
-  tableTennis,
-} from "@/lib/content";
+import { site } from "@/lib/content";
 
+// Percentage coordinates refer to the labels in ventacularity-final.png.
+// Keep these invisible: the illustration already contains the station titles.
+const stations = [
+  // Coordinates measured from the final 1648 × 928 illustrated artwork.
+  // Each invisible link covers its illustrated station card, including its icon.
+  { number: "01", name: "Project Lab", href: "/projects/", x: 14.9, y: 32.6, w: 18.3, h: 9.9 },
+  { number: "02", name: "Flight Deck", href: "/flight-deck/", x: 38.7, y: 11.8, w: 16.0, h: 9.1 },
+  { number: "03", name: "Mission Log", href: "/experience/", x: 57.5, y: 34.3, w: 18.8, h: 9.4 },
+  { number: "04", name: "Workbench", href: "/workbench/", x: 36.8, y: 79.2, w: 18.1, h: 9.3 },
+  { number: "05", name: "Competition Zone", href: "/table-tennis/", x: 72.8, y: 79.2, w: 17.0, h: 9.3 },
+  { number: "06", name: "About Me", href: "/about/", x: 86.2, y: 38.5, w: 16.3, h: 9.2 },
+  { number: "07", name: "Comms Station", href: "/contact/", x: 91.8, y: 67.4, w: 15.9, h: 9.1 },
+  { number: "08", name: "Into the Horizon", href: "/horizon/", x: 86.7, y: 15.6, w: 19.6, h: 12.1 },
+];
 export default function Home() {
-  return (
-    <>
-      <section className="hero">
-        <h1 className="hero-name">{site.name}</h1>
-        <PhaseTrace />
-        <p className="lead">{site.tagline}</p>
-        <p className="intro">{site.intro}</p>
-      </section>
-
-      <section className="section" aria-labelledby="projects-title">
-        <h2 id="projects-title" className="section-title">
-          Projects
-        </h2>
-        <div className="section-body">
-          {projects.slice(0, 3).map((p) => (
-            <ProjectRow key={p.slug} project={p} />
-          ))}
-          <Link href="/projects/" className="more">
-            See all projects
-          </Link>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="experience-title">
-        <h2 id="experience-title" className="section-title">
-          Experience
-        </h2>
-        <div className="section-body">
-          {experience.map((job) => (
-            <article key={job.org} className="job">
-              <h3 className="job-org">
-                {job.org}
-                {job.place ? <span className="job-place">{job.place}</span> : null}
-              </h3>
-              <ul className="roles">
-                {job.roles.map((r) => (
-                  <li key={r.title}>
-                    <span className="role-title">{r.title}</span>
-                    <span className="period">{r.period}</span>
-                  </li>
-                ))}
-              </ul>
-              <ul className="bullets">
-                {job.bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="education-title">
-        <h2 id="education-title" className="section-title">
-          Education and skills
-        </h2>
-        <div className="section-body">
-          <h3 className="job-org">{education.school}</h3>
-          <p>{education.degree}</p>
-          <p className="period">{education.period}</p>
-          <dl className="facts" style={{ marginTop: "1rem" }}>
-            <dt>Completed</dt>
-            <dd>{education.completed.join(", ")}</dd>
-            <dt>In progress</dt>
-            <dd>{education.inProgress.join(", ")}</dd>
-          </dl>
-
-          <h3 className="subhead">Skills</h3>
-          <dl className="facts">
-            {skills.map((s) => (
-              <div key={s.group} style={{ display: "contents" }}>
-                <dt>{s.group}</dt>
-                <dd>{s.items}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <h3 className="subhead">Awards</h3>
-          <ul className="bullets" style={{ marginTop: 0 }}>
-            {awards.map((a) => (
-              <li key={a}>{a}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="tt-title">
-        <h2 id="tt-title" className="section-title">
-          Table tennis
-        </h2>
-        <div className="section-body">
-          <p className="page-lead">{tableTennis.headline}</p>
-          <ul className="bullets">
-            {tableTennis.facts.map((f) => (
-              <li key={f}>{f}</li>
-            ))}
-          </ul>
-          <Link href="/table-tennis/" className="more">
-            Results and background
-          </Link>
-        </div>
-      </section>
-
-      <section className="section" id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title" className="section-title">
-          Contact
-        </h2>
-        <div className="section-body">
-          <a className="contact-email" href={`mailto:${site.email}`}>
-            {site.email}
-          </a>
-          <p className="note" style={{ marginTop: "0.75rem" }}>
-            {site.availability}
-          </p>
-          <div className="contact-links">
-            <a href={site.linkedin}>LinkedIn</a>
-            <a href={site.github}>GitHub</a>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+ return <section className="map-home" aria-label="Ventacularity interactive portfolio">
+   <div className="map-stage" role="group" aria-label="Explore eight illustrated stations">
+     <div className="map-fallback" aria-hidden="true" />
+     <div className="map-final-image" role="img" aria-label="Ventacularity: cinematic illustrated engineering desk with a space launch, aircraft, circuits, Bay Area sunset and eight navigation stations" />
+     {stations.map(s=><Link key={s.name} href={s.href} className="map-target" style={{left:`${s.x}%`,top:`${s.y}%`,width:`${s.w}%`,height:`${s.h}%`}} aria-label={`${s.number} / ${s.name} — open station`} title={s.name} />)}
+     <a className="map-social map-social-github" href={site.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub" />
+     <a className="map-social map-social-linkedin" href={site.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" />
+     <a className="map-social map-social-email" href="mailto:ventacularity@berkeley.edu" aria-label="Email" title="Email" />
+   </div>
+   <nav className="map-mobile-links" aria-label="Portfolio stations">{stations.map(s=><Link key={s.name} href={s.href}>{s.number} / {s.name} ↗</Link>)}</nav>
+ </section>;
 }

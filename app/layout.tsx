@@ -3,6 +3,7 @@ import "@fontsource-variable/archivo/wdth.css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ImageLightbox from "@/components/ImageLightbox";
 import { site } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main" className="wrap">
           {children}
         </main>
+        <ImageLightbox />
         <Footer />
       </body>
     </html>

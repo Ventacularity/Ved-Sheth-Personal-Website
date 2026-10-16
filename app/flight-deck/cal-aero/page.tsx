@@ -1,0 +1,13 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+export const metadata: Metadata = { title: "Cal Aero — Aircraft Gallery", description: "Competition aircraft photographs and flight recordings from Cal Aero." };
+export default function CalAeroGallery() {
+  return <><div className="page-head station-compact-head"><Link className="back" href="/flight-deck/">← Back to Flight Deck</Link><p className="section-overline">02 / FLIGHT DECK / CAL AERO</p><h1 className="page-title">Aircraft <em>in action.</em></h1><p className="page-lead">Five moments from Cal Aero, including the 2025 competition plane, team leadership, and aircraft in flight. Select a photograph to enlarge it on this page; videos have playback and fullscreen controls.</p></div>
+  <section className="aero-gallery">
+    <figure className="portfolio-figure"><a href="/CalAero/2025_Plane_Picture.JPG" target="_blank" rel="noopener noreferrer"><img src="/CalAero/2025_Plane_Picture.JPG" alt="2025 blue Cal Aero competition plane on the ground"/></a><figcaption>2025 · Competition aircraft · Enlarge ↗</figcaption></figure>
+    <figure className="portfolio-figure"><a href="/CalAero/2026_Captain_Picture.jpg" target="_blank" rel="noopener noreferrer"><img src="/CalAero/2026_Captain_Picture.jpg" alt="2026 Cal Aero team captain with competition plane"/></a><figcaption>2026 · Picture with Plane · Enlarge ↗</figcaption></figure>
+    <figure className="portfolio-figure"><video src="/CalAero/2026_Competitive_Plane.mov" autoPlay muted loop playsInline controls preload="metadata" aria-label="2026 competition aircraft looping video"><a href="/CalAero/2026_Competitive_Plane.mov">Open 2026 competition aircraft clip</a></video><figcaption>2026 · Competition aircraft <a href="/CalAero/2026_Competitive_Plane.mov" target="_blank" rel="noopener noreferrer">Open original ↗</a></figcaption></figure>
+    <figure className="portfolio-figure"><video src="/CalAero/2025_Flight_Video.MP4" controls playsInline preload="metadata" poster="/CalAero/2025_Plane_Picture.JPG" aria-label="2025 flight video"><a href="/CalAero/2025_Flight_Video.MP4">Open 2025 flight video</a></video><figcaption>2025 · Flight footage · Play / pause / fullscreen</figcaption></figure>
+    <figure className="portfolio-figure"><video src="/CalAero/2026_Flight_Video.mov" controls playsInline preload="metadata" aria-label="2026 flight video"><a href="/CalAero/2026_Flight_Video.mov">Open 2026 flight video</a></video><figcaption>2026 · Flight footage · Play / pause / fullscreen <a href="/CalAero/2026_Flight_Video.mov" target="_blank" rel="noopener noreferrer">Open original ↗</a></figcaption></figure>
+  </section></>;
+}

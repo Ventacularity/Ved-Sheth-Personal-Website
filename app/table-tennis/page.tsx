@@ -1,58 +1,125 @@
 import type { Metadata } from "next";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
-import { tableTennis } from "@/lib/content";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Table tennis",
-  description: tableTennis.headline,
+  title: "Competition Zone — Table Tennis",
+  description: "A timeline of Team USA achievements, Cal Table Tennis leadership, and coaching.",
 };
 
+type Result = { label: string; medal?: "gold" | "silver" | "bronze" | "team" };
+type Year = {
+  year: string;
+  cal?: { role: string; details: string[] };
+  usa: Result[];
+  coaching?: { club: string; place: string; date: string };
+  usaPhotos?: { src: string; caption: string }[];
+  calPhoto?: { src: string; caption: string };
+};
+
+const years: Year[] = [
+  {
+    year: "2021",
+    usa: [
+      { label: "US Open · U19 Mixed Doubles", medal: "bronze" },
+      { label: "US Open · U19 Teams", medal: "silver" },
+    ],
+  },
+  {
+    year: "2022",
+    usaPhotos: [{ src: "/TableTennis/ISF2022.jpeg", caption: "2022 ISF World High School Games" }, { src: "/TableTennis/PanAm2022.jpeg", caption: "2022 Pan American Youth Championships" }],
+    usa: [
+      { label: "ISF World High School Games · U19 Boys Doubles", medal: "bronze" },
+      { label: "ITTF Pan American Youth Championships · Teams", medal: "bronze" },
+      { label: "US Nationals · U17 Singles", medal: "bronze" },
+      { label: "US Nationals · U19 Doubles", medal: "bronze" },
+      { label: "US Nationals · U19 Mixed Doubles", medal: "bronze" },
+      { label: "US Junior Team Trials · Final rank 2nd", medal: "silver" },
+    ],
+  },
+  {
+    year: "2023",
+    calPhoto: { src: "/TableTennis/NCTTA2024.jpeg", caption: "2024 Collegiate Nationals · first year" },
+    cal: { role: "Competitive Team Captain / Student Athlete", details: ["Joined Cal's competitive team · Aug 2023", "Led and competed with the collegiate squad", "2023–2024 · Collegiate Nationals · Team Silver", "2023–2024 · Collegiate Nationals · Singles Silver"] },
+    usa: [
+      { label: "US Open · U21 Singles", medal: "bronze" },
+      { label: "US Open · U19 Singles", medal: "silver" },
+      { label: "US Nationals · U19 Mixed Doubles", medal: "bronze" },
+    ],
+  },
+  {
+    year: "2024",
+
+    usaPhotos: [{ src: "/TableTennis/PanAm2024.jpeg", caption: "2024 Pan American Youth Championships" }],
+    cal: { role: "Secretary", details: ["Aug 2024 – May 2025", "2024–2025 · Collegiate Nationals · Team Gold", "2024–2025 · Collegiate Nationals · Singles Silver"] },
+    usa: [
+      { label: "ITTF Pan American Youth Championships · Teams", medal: "bronze" },
+      { label: "US Nationals · U19 Singles", medal: "bronze" },
+      { label: "US Nationals · Men's Doubles", medal: "bronze" },
+      { label: "US Nationals · Mixed Doubles", medal: "bronze" },
+      { label: "US Nationals · U19 Doubles", medal: "silver" },
+      { label: "US Nationals · U19 Mixed Doubles", medal: "silver" },
+      { label: "US Junior Team Trials · Final rank 3rd", medal: "bronze" },
+    ],
+  },
+  {
+    year: "2025",
+    usaPhotos: [{ src: "/TableTennis/FISU2025.jpeg", caption: "2025 FISU World University Games" }, { src: "/TableTennis/WorldCup2025.jpeg", caption: "2025 ITTF Mixed World Cup" }],
+    calPhoto: { src: "/TableTennis/NCTTA2026.jpeg", caption: "2026 Collegiate Nationals · co-presidency" },
+    cal: { role: "Co-President", details: ["May 2025 – Jul 2026", "2025–2026 · Collegiate Nationals · Team Silver", "2025–2026 · Collegiate Nationals · Singles Silver"] },
+    coaching: { club: "ICC Table Tennis", place: "Milpitas, CA", date: "Summer 2025" },
+    usa: [
+      { label: "FISU World University Games · Team Member", medal: "team" },
+      { label: "ITTF Mixed World Cup · Team Member", medal: "team" },
+    ],
+  },
+  {
+    year: "2026",
+
+    cal: { role: "President", details: ["Aug 2026 – present", "Run practices, open play events, and club socials"] },
+    coaching: { club: "Carolina International Table Tennis", place: "Apex, NC", date: "Summer 2026" },
+    usa: [
+      { label: "ITTF North American Championships · Men's Singles", medal: "bronze" },
+      { label: "ITTF North American Championships · Men's Doubles", medal: "bronze" },
+      { label: "US Nationals · U21 Men's Singles", medal: "gold" },
+      { label: "US Nationals · Men's Doubles", medal: "silver" },
+    ],
+  },
+];
+
+function ResultList({ items }: { items: Result[] }) {
+  return <ul className="tt-results">{items.map((item, i) => <li key={i}><span className={`tt-medal tt-medal-${item.medal ?? "team"}`} aria-label={item.medal === "team" ? "Team member" : item.medal + " medal"}>{item.medal === "gold" ? "●" : item.medal === "silver" ? "●" : item.medal === "bronze" ? "●" : "◆"}</span><span>{item.label}</span></li>)}</ul>;
+}
+
 export default function TableTennisPage() {
-  return (
-    <>
-      <div className="page-head">
-        <h1 className="page-title">Table tennis</h1>
-        <p className="page-lead">{tableTennis.headline}</p>
-      </div>
-
-      <div style={{ marginTop: "2rem" }}>
-        <ImagePlaceholder label="Match action shot" wide />
-      </div>
-
-      <section className="section" aria-labelledby="results-title">
-        <h2 id="results-title" className="section-title">
-          Results
-        </h2>
-        <div className="section-body">
-          <ul className="bullets" style={{ marginTop: 0, marginBottom: "2rem" }}>
-            {tableTennis.facts.map((f) => (
-              <li key={f}>{f}</li>
-            ))}
-          </ul>
-          {tableTennis.results.map((row) => (
-            <div key={row.year} className="results-row">
-              <h3 className="results-year">{row.year}</h3>
-              <ul className="results-list">
-                {row.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+  return <>
+    <div className="page-head station-compact-head">
+      <Link className="back" href="/">← Back to Ved's world</Link>
+      <p className="section-overline">05 / COMPETITION ZONE</p>
+      <h1 className="page-title">The competitive <em>edge.</em></h1>
+      <p className="page-lead">Two journeys, one sport. Representing Team USA while competing, leading, and coaching at the collegiate level.</p>
+    </div>
+    <section className="tt-timeline-section" aria-label="Table tennis career timeline">
+      <div className="tt-profile-strip"><a href="https://www.worldtabletennis.com/playerDescription?playerId=134486" target="_blank" rel="noopener noreferrer" aria-label="View my World Table Tennis player profile"><img src="/TableTennis/NationalTeam_ProfilePicture.png" alt="Team USA table tennis athlete portrait" loading="lazy"/></a><div><span className="section-overline">TEAM USA × CAL TABLE TENNIS</span><strong>A decade of competition, a lifetime of learning.</strong><p>From international tournaments to leading Berkeley's collegiate club.</p></div></div><div className="tt-timeline-heading"><div><p className="section-overline">2021 — PRESENT</p><h2>Parallel paths. Shared passion.</h2></div><div className="tt-legend"><span><i className="tt-key tt-key-cal"/>Cal Table Tennis</span><span><i className="tt-key tt-key-usa"/>Team USA</span><span><i className="tt-key tt-key-coach"/>Coaching</span></div></div>
+      <div className="tt-timeline-scroll" tabIndex={0} aria-label="Scroll horizontally through table tennis history">
+        <div className="tt-timeline">
+          <div className="tt-lane-label tt-lane-label-cal">CAL TABLE TENNIS <span>Berkeley, California</span></div>
+          <div className="tt-lane-label tt-lane-label-usa">TEAM USA <span>National & international</span></div>
+          <div className="tt-rail tt-rail-cal" aria-hidden="true"/>
+          <div className="tt-rail tt-rail-usa" aria-hidden="true"/>
+          {years.map((year, index) => <div className="tt-year" key={year.year} style={{ gridColumn: index + 1 }}>
+            <div className="tt-year-cal">
+              {year.cal ? <article className="tt-event tt-event-cal"><p className="tt-event-kicker">CAL TABLE TENNIS CLUB</p><h3>{year.cal.role}</h3>{year.calPhoto && <figure className="tt-inline-photo"><a href={year.calPhoto.src} target="_blank" rel="noopener noreferrer" aria-label={`Enlarge ${year.calPhoto.caption}`}><img src={year.calPhoto.src} alt={year.calPhoto.caption} loading="lazy"/></a><figcaption>{year.calPhoto.caption}</figcaption></figure>}<ul>{year.cal.details.map((d, i) => <li key={i}>{d}</li>)}</ul></article> : <div className="tt-empty" aria-hidden="true"/>}
             </div>
-          ))}
+            <div className="tt-junction tt-junction-cal"><span className="tt-node tt-node-cal"/></div>
+            <div className="tt-year-coaching"><span className="tt-year-number">{year.year}</span>
+              {year.coaching && <article className="tt-coaching"><span className="tt-coach-tag">COACHING</span><h3>{year.coaching.club}</h3><p>{year.coaching.place}</p><p>{year.coaching.date}</p></article>}
+            </div>
+            <div className="tt-junction tt-junction-usa"><span className="tt-node tt-node-usa"/></div>
+            <div className="tt-year-usa"><article className="tt-event tt-event-usa"><p className="tt-event-kicker">TEAM USA</p><ResultList items={year.usa}/>{year.usaPhotos && <div className="tt-usa-photos">{year.usaPhotos.map(photo => <figure className="tt-inline-photo" key={photo.src}><a href={photo.src} target="_blank" rel="noopener noreferrer" aria-label={`Enlarge ${photo.caption}`}><img src={photo.src} alt={photo.caption} loading="lazy"/></a><figcaption>{photo.caption}</figcaption></figure>)}</div>}</article></div>
+          </div>)}
         </div>
-      </section>
-
-      <section className="section" aria-labelledby="bio-title">
-        <h2 id="bio-title" className="section-title">
-          Background
-        </h2>
-        <div className="section-body">
-          <p className="note">
-            The story of how I started playing and what the last ten years on the national team
-            looked like is coming here.
-          </p>
-        </div>
-      </section>
-    </>
-  );
+      </div>
+      <p className="tt-timeline-foot">Medal key: <span className="tt-medal tt-medal-gold">●</span> Gold <span className="tt-medal tt-medal-silver">●</span> Silver <span className="tt-medal tt-medal-bronze">●</span> Bronze <span className="tt-medal tt-medal-team">◆</span> Team member / selection</p>
+    </section>
+  </>;
 }

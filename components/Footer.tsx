@@ -1,16 +1,4 @@
 import { site } from "@/lib/content";
-
-export default function Footer() {
-  return (
-    <footer className="wrap">
-      <div className="site-footer">
-        <p>{site.name}, UC Berkeley EECS</p>
-        <div className="footer-links">
-          <a href={`mailto:${site.email}`}>Email</a>
-          <a href={site.linkedin}>LinkedIn</a>
-          <a href={site.github}>GitHub</a>
-        </div>
-      </div>
-    </footer>
-  );
+export default function Footer(){
+ return <footer className="wrap station-footer-wrap"><div className="site-footer station-footer"><p>© Ved Sheth · UC Berkeley EECS 2027</p><div className="footer-links"><a href="mailto:ventacularity@berkeley.edu">Email ↗</a><a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href={site.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div></footer>;
 }
