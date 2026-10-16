@@ -35,7 +35,7 @@ const years: Year[] = [
   },
   {
     year: "2023",
-    cal: { role: "Competitive Team Captain / Student Athlete", details: ["Joined Cal's competitive team · Aug 2023", "Led and competed with the collegiate squad"] },
+    cal: { role: "Competitive Team Captain / Student Athlete", details: ["Joined Cal's competitive team · Aug 2023", "Led and competed with the collegiate squad", "2024 Collegiate Nationals · Team Silver", "2024 Collegiate Nationals · Singles Silver"] },
     usa: [
       { label: "US Open · U21 Singles", medal: "bronze" },
       { label: "US Open · U19 Singles", medal: "silver" },
@@ -44,7 +44,7 @@ const years: Year[] = [
   },
   {
     year: "2024",
-    cal: { role: "Secretary", details: ["Aug 2024 – May 2025", "2024 Collegiate Nationals · Team Silver", "2024 Collegiate Nationals · Singles Silver"] },
+    cal: { role: "Secretary", details: ["Aug 2024 – May 2025", "2025 Collegiate Nationals · Team Gold", "2025 Collegiate Nationals · Singles Silver"] },
     usa: [
       { label: "ITTF Pan American Youth Championships · Teams", medal: "bronze" },
       { label: "US Nationals · U19 Singles", medal: "bronze" },
@@ -57,7 +57,7 @@ const years: Year[] = [
   },
   {
     year: "2025",
-    cal: { role: "Co-President", details: ["May 2025 – Jul 2026", "Ran practices, open play events, and club socials", "2025 Collegiate Nationals · Team Gold", "2025 Collegiate Nationals · Singles Silver"] },
+    cal: { role: "Co-President", details: ["May 2025 – Jul 2026", "2026 Collegiate Nationals · Team Silver", "2026 Collegiate Nationals · Singles Silver"] },
     coaching: { club: "ICC Table Tennis", place: "Milpitas, CA", date: "Summer 2025" },
     usa: [
       { label: "FISU World University Games · Team Member", medal: "team" },
@@ -66,7 +66,7 @@ const years: Year[] = [
   },
   {
     year: "2026",
-    cal: { role: "President", details: ["Aug 2026 – present", "Previously Co-President · May 2025 – Jul 2026", "2026 Collegiate Nationals · Team Silver", "2026 Collegiate Nationals · Singles Silver"] },
+    cal: { role: "President", details: ["Aug 2026 – present", "Run practices, open play events, and club socials"] },
     coaching: { club: "Carolina International Table Tennis", place: "Apex, NC", date: "Summer 2026" },
     usa: [
       { label: "ITTF North American Championships · Men's Singles", medal: "bronze" },
@@ -91,7 +91,6 @@ export default function TableTennisPage() {
     </div>
     <section className="tt-timeline-section" aria-label="Table tennis career timeline">
       <div className="tt-timeline-heading"><div><p className="section-overline">2021 — PRESENT</p><h2>Parallel paths. Shared passion.</h2></div><div className="tt-legend"><span><i className="tt-key tt-key-cal"/>Cal Table Tennis</span><span><i className="tt-key tt-key-usa"/>Team USA</span><span><i className="tt-key tt-key-coach"/>Coaching</span></div></div>
-      <p className="tt-scroll-hint">Explore the timeline from left to right <span aria-hidden="true">→</span></p>
       <div className="tt-timeline-scroll" tabIndex={0} aria-label="Scroll horizontally through table tennis history">
         <div className="tt-timeline">
           <div className="tt-lane-label tt-lane-label-cal">CAL TABLE TENNIS <span>Berkeley, California</span></div>
@@ -102,12 +101,12 @@ export default function TableTennisPage() {
             <div className="tt-year-cal">
               {year.cal ? <article className="tt-event tt-event-cal"><p className="tt-event-kicker">CAL TABLE TENNIS CLUB</p><h3>{year.cal.role}</h3><ul>{year.cal.details.map((d, i) => <li key={i}>{d}</li>)}</ul></article> : <div className="tt-empty" aria-hidden="true"/>}
             </div>
-            <div className="tt-junction tt-junction-cal"><span className="tt-node tt-node-cal"/><span className="tt-year-number">{year.year}</span></div>
-            <div className="tt-year-coaching">
+            <div className="tt-junction tt-junction-cal"><span className="tt-node tt-node-cal"/></div>
+            <div className="tt-year-coaching"><span className="tt-year-number">{year.year}</span>
               {year.coaching && <article className="tt-coaching"><span className="tt-coach-tag">COACHING</span><h3>{year.coaching.club}</h3><p>{year.coaching.place}</p><p>{year.coaching.date}</p></article>}
             </div>
             <div className="tt-junction tt-junction-usa"><span className="tt-node tt-node-usa"/></div>
-            <div className="tt-year-usa"><article className="tt-event tt-event-usa"><p className="tt-event-kicker">NATIONAL + INTERNATIONAL</p><ResultList items={year.usa}/></article></div>
+            <div className="tt-year-usa"><article className="tt-event tt-event-usa"><p className="tt-event-kicker">TEAM USA</p><ResultList items={year.usa}/></article></div>
           </div>)}
         </div>
       </div>
