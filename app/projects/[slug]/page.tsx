@@ -66,10 +66,41 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
         {projectRepo && <a className="text-link" href={projectRepo} target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a>}
       </div>
 
-      <section className="project-detail-grid" aria-label="Project details">
-        <div className="project-detail-visuals">{projectMedia.map((item, index) => <figure className={index === 0 ? "portfolio-figure portfolio-figure-primary" : "portfolio-figure"} key={item.src}><a href={item.src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${item.label} full size`}><img src={item.src} alt={item.alt} loading={index === 0 ? "eager" : "lazy"}/></a><figcaption>{item.label} · Click to enlarge ↗</figcaption></figure>)}</div>
-        <article className="project-detail-info"><p className="section-overline">DESIGN / IMPLEMENTATION / RESULTS</p><h2>Engineering highlights</h2><ul className="bullets">{project.highlights.map(h => <li key={h}>{h}</li>)}</ul><p className="note">Explore the original project media at full resolution using the image links.</p></article>
-      </section>
+      {slug === "smartwatch-lcd-driver" ? (
+        <section className="lcd-full-art" aria-label="Complete LCD driver engineering infographic">
+          <img src="/LCD_Driver/LCD_Driver.png" alt="Complete smartwatch LCD driver design infographic, including architecture, methods and results"/>
+        </section>
+      ) : (
+        <section className="project-detail-grid project-detail-expanded" aria-label="Project details">
+          <div className="project-detail-visuals project-detail-equal">
+            {projectMedia.map(item => <figure className="portfolio-figure" key={item.src}><a href={item.src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${item.label} full size`}><img src={item.src} alt={item.alt} loading="lazy"/></a><figcaption>{item.label} · Click to enlarge ↗</figcaption></figure>)}
+          </div>
+          {slug === "voice-spoof-detector" ? <div className="project-explainer">
+            <p className="section-overline">EE 123 · SIGNAL PROCESSING / MACHINE LEARNING</p>
+            <h2>Reading the signals</h2>
+            <p>SPARC converts speech into a new speaker’s voice using a HiFi-GAN vocoder. We looked for acoustic signatures that survive this conversion: natural speech changes rapidly in frequency and amplitude, while synthesized speech can smooth or distort those variations.</p>
+            <div className="project-explainer-grid">
+              <article><h3>01 / Spectrograms</h3><p>A spectrogram shows <strong>time horizontally, frequency vertically, and energy by color</strong>. Compare the real and converted speech panels for changes in high-frequency detail, transitions, and energy distribution. These are visual examples, not classifier predictions by themselves.</p></article>
+              <article><h3>02 / DSP feature analysis</h3><p>Our features quantify spectral flux (how much the frequency spectrum changes between frames), low-frequency modulation (speech rhythm), high-frequency aliasing energy, and glottal variation. The plots compare real and spoof feature distributions; stronger separation means a more useful detection signal.</p></article>
+              <article><h3>03 / What matters most</h3><p>Spectral-flux standard deviation was the strongest discriminator, with Cohen’s d = 1.915 on VCTK and 2.820 on held-out VC500. Modulation energy also separated classes strongly (d = 1.818 on VCTK). A larger absolute Cohen’s d indicates greater separation in units of pooled standard deviation.</p></article>
+              <article><h3>04 / How we classified</h3><p>We standardized the DSP features, trained logistic regression and a 400-tree XGBoost model, then compared OR, AND, and averaged-probability ensembles. The averaged ensemble combined the models’ complementary strengths on unseen voice-conversion data.</p></article>
+            </div>
+            <div className="project-results"><div><strong>99.1%</strong><span>XGBoost accuracy · in-distribution VCTK</span></div><div><strong>94.7%</strong><span>Average ensemble accuracy · held-out VC500</span></div><div><strong>99.6%</strong><span>Spoof recall · held-out VC500, average ensemble</span></div></div>
+            <p className="project-method-note">Evaluation used balanced training with 1,000 real and 1,000 spoof clips. Out-of-distribution VC500 was held out entirely. Initial phase-variance experiments showed essentially no separation, so the final approach emphasized spectral and temporal features.</p>
+          </div> : <div className="project-explainer">
+            <p className="section-overline">HOPE · POWER ELECTRONICS / EMBEDDED DESIGN</p><h2>From sunlight to USB power</h2>
+            <p>The goal was a portable solar charging station: collect energy from a 5 V, 1.2 W panel, manage a single-cell Li-Po battery, and provide a regulated 5 V USB-C output while an ESP32 reports battery and charging status on an OLED.</p>
+            <div className="solar-flow"><span>5 V solar panel</span><b>→</b><span>Fuse + Schottky diode</span><b>→</b><span>BQ24075 charger + 3.7 V Li-Po</span><b>→</b><span>TPS61023 boost → 5 V USB-C</span></div>
+            <div className="project-explainer-grid">
+              <article><h3>01 / Charging and protection</h3><p>The BQ24075 handles single-cell battery charging and power-path management. A resettable fuse protects the solar input, and a Schottky diode blocks reverse current toward the panel.</p></article>
+              <article><h3>02 / Two regulated rails</h3><p>The TPS61023 boost converter raises battery voltage to a nominal 5 V for USB power. An AP7333 LDO supplies 3.3 V to the ESP32-S3 and logic circuitry.</p></article>
+              <article><h3>03 / Sensing and interface</h3><p>The ESP32-S3 design uses ADC measurements and resistor dividers to estimate battery voltage and monitor charging conditions. A 0.96-inch I²C OLED was intended to show battery level and device charging status.</p></article>
+              <article><h3>04 / PCB design and assembly</h3><p>We created the schematic and routed a custom PCB in KiCad, accounting for high-current traces, grounding, decoupling, and switching-converter noise. The photos show the physical board, its copper layout, and the underlying circuit.</p></article>
+            </div>
+            <div className="project-caveat"><strong>Prototype outcome</strong><p>We assembled the PCB and wrote the firmware, but a difficult hand-soldered USB-C programming connection left the microcontroller undetectable, so the board was <strong>not demonstrated as fully functional</strong>. The project provided practical experience with PCB bring-up, debugging, and manufacturing constraints.</p></div>
+          </div>}
+        </section>
+      )}
 
       <nav className="pager" aria-label="More projects">
         {prev ? <Link href={`/projects/${prev.slug}/`}>Previous: {prev.title}</Link> : <span />}
