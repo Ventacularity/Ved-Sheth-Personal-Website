@@ -170,3 +170,15 @@ main.wrap:has(.project-detail-grid){max-width:1600px}
 .seb-subsystems{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .seb-subsystems span{padding:11px 8px;text-align:center;background:#142b42;border:1px solid #385876;color:#d4eaff;font-size:11px}
 @media(max-width:750px){.seb-sections{grid-template-columns:1fr}.seb-sections>section:last-child{grid-column:auto}.seb-subsystems{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* SEB: full-width mission and icons paired with individual contributions */
+.seb-card .seb-mission{margin:14px 0 20px;padding:15px 17px;border-left:3px solid #5bbaff;background:#0b1b2d;color:#c3d6e8;font-size:14px;line-height:1.65}
+.seb-mission strong{color:#f2f8ff}
+.seb-card .seb-contributions-title{font-size:17px;color:#b9dfff;margin:16px 0 10px}
+.seb-contribution-list{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.seb-contribution-list li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 14px;background:#0b1b2d;border:1px solid #304960;color:#b7ccdf;font-size:13px;line-height:1.55}
+.seb-contribution-list li>span:first-child{flex:1}
+.seb-bullet-icon-group{display:flex;gap:8px;flex:none}
+.seb-bullet-icon{display:grid;place-items:center;width:42px;height:42px;flex:none;border:1px solid #3d729a;border-radius:8px;background:#132f49;color:#8ed3ff;font-size:24px;line-height:1}
+@media(max-width:650px){.seb-contribution-list li{gap:10px;padding:10px}.seb-bullet-icon{width:33px;height:33px;font-size:20px}.seb-bullet-icon-group{gap:4px}}
