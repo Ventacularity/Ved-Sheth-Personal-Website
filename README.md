@@ -2,6 +2,8 @@
 
 An interactive, illustrated portfolio exploring my work in **electrical engineering, embedded hardware, avionics, digital systems, and signal processing**, alongside my experience as a **Team USA table tennis athlete**.
 
+**Live website:** [ved-sheth-personal-website.vercel.app](https://ved-sheth-personal-website.vercel.app)
+
 I'm an Electrical Engineering and Computer Sciences student at **UC Berkeley** (Class of 2027). I built this site as a more personal way to share the projects, teams, experiences, and interests that shape my work.
 
 ![Ventacularity portfolio homepage](public/ventacularity-final.png)
