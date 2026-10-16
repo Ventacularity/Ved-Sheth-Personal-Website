@@ -35,7 +35,7 @@ const years: Year[] = [
   },
   {
     year: "2023",
-    cal: { role: "Competitive Team Captain / Student Athlete", details: ["Joined Cal's competitive team · Aug 2023", "Led and competed with the collegiate squad", "2024 Collegiate Nationals · Team Silver", "2024 Collegiate Nationals · Singles Silver"] },
+    cal: { role: "Competitive Team Captain / Student Athlete", details: ["Joined Cal's competitive team · Aug 2023", "Led and competed with the collegiate squad", "2023–2024 · Collegiate Nationals · Team Silver", "2023–2024 · Collegiate Nationals · Singles Silver"] },
     usa: [
       { label: "US Open · U21 Singles", medal: "bronze" },
       { label: "US Open · U19 Singles", medal: "silver" },
@@ -44,7 +44,7 @@ const years: Year[] = [
   },
   {
     year: "2024",
-    cal: { role: "Secretary", details: ["Aug 2024 – May 2025", "2025 Collegiate Nationals · Team Gold", "2025 Collegiate Nationals · Singles Silver"] },
+    cal: { role: "Secretary", details: ["Aug 2024 – May 2025", "2024–2025 · Collegiate Nationals · Team Gold", "2024–2025 · Collegiate Nationals · Singles Silver"] },
     usa: [
       { label: "ITTF Pan American Youth Championships · Teams", medal: "bronze" },
       { label: "US Nationals · U19 Singles", medal: "bronze" },
@@ -57,7 +57,7 @@ const years: Year[] = [
   },
   {
     year: "2025",
-    cal: { role: "Co-President", details: ["May 2025 – Jul 2026", "2026 Collegiate Nationals · Team Silver", "2026 Collegiate Nationals · Singles Silver"] },
+    cal: { role: "Co-President", details: ["May 2025 – Jul 2026", "2025–2026 · Collegiate Nationals · Team Silver", "2025–2026 · Collegiate Nationals · Singles Silver"] },
     coaching: { club: "ICC Table Tennis", place: "Milpitas, CA", date: "Summer 2025" },
     usa: [
       { label: "FISU World University Games · Team Member", medal: "team" },
