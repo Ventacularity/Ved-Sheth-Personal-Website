@@ -4,7 +4,7 @@ import { experience } from "@/lib/content";
 export const metadata: Metadata = { title: "Mission Log — Experience", description: "Hardware R&D at Hitachi Energy and secure computing with IEEE SIEEECURE." };
 export default function Experience() {
   const hitachi = experience[0], ieee = experience[1];
-  return <><div className="page-head station-compact-head"><Link className="back" href="/">← Back to Ved's world</Link><p className="section-overline">03 / MISSION LOG</p><h1 className="page-title">Built through <em>curiosity.</em></h1><p className="page-lead">From hands-on engineering projects at UC Berkeley to professional hardware R&D at Hitachi Energy, I've applied my skills across academic and industry environments.</p></div>
+  return <><div className="page-head station-compact-head"><Link className="back" href="/">← Back to Ved's world</Link><p className="section-overline">03 / MISSION LOG</p><h1 className="page-title">Built through <em>curiosity.</em></h1><p className="page-lead">From hands-on engineering projects at UC Berkeley to professional hardware R&D, I've applied my skills across academic and industry environments.</p></div>
     <section className="mission-grid" aria-label="Engineering experience">
       <article className="mission-card"><div className="mission-topline"><span>01 / INDUSTRY R&D</span><span>Raleigh, NC · May–Aug 2026</span></div><h2>{hitachi.org}</h2><p className="mission-role">Digital Hardware R&D Intern · Transformer Bushing Monitoring</p><p className="mission-intro">Built a controllable three-phase test environment to investigate transformer-bushing insulation health, current phasors, and fault detection.</p>
         <div className="mission-tiles">
