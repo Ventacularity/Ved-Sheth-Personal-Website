@@ -390,3 +390,7 @@ main.wrap:has(.aero-gallery){max-width:1650px}
   .page-head .page-lead{max-width:none;font-size:clamp(16px,1.3vw,19px)}
   .horizon-hero>p:last-of-type{max-width:none;font-size:clamp(16px,1.3vw,19px)}
 }
+
+/* Station numbers overlay the existing artwork; no changes to the image itself. */
+.map-target::before{content:attr(data-station-number);position:absolute;top:0;left:0;transform:translate(-28%,-38%);display:grid;place-items:center;width:clamp(22px,2.35vw,37px);height:clamp(22px,2.35vw,37px);border:1px solid #9bdcff;border-radius:7px;background:rgba(5,20,40,.94);box-shadow:0 0 13px rgba(77,175,255,.5);color:#d8f1ff;font:700 clamp(10px,1.05vw,16px)/1 'Space Grotesk',sans-serif;letter-spacing:.02em;pointer-events:none}
+@media(max-width:650px){.map-target::before{width:20px;height:20px;font-size:10px;border-radius:5px}}
