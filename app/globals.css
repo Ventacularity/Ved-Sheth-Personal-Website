@@ -384,3 +384,9 @@ main.wrap:has(.aero-gallery){max-width:1650px}
 .mission-grid .mission-intro{max-width:1100px}
 .mission-grid .mission-media{max-width:1250px}
 @media(max-width:650px){.mission-grid>.mission-card{padding:20px}}
+
+/* Let station introductions use the available desktop width instead of wrapping early. */
+@media(min-width:1100px){
+  .page-head .page-lead{max-width:none;font-size:clamp(16px,1.3vw,19px)}
+  .horizon-hero>p:last-of-type{max-width:none;font-size:clamp(16px,1.3vw,19px)}
+}
