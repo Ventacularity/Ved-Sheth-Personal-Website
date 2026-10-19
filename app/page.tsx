@@ -20,7 +20,7 @@ export default function Home() {
    <div className="map-stage" role="group" aria-label="Explore eight illustrated stations">
      <div className="map-fallback" aria-hidden="true" />
      <div className="map-final-image" role="img" aria-label="Ventacularity: cinematic illustrated engineering desk with a space launch, aircraft, circuits, Bay Area sunset and eight navigation stations" />
-     {stations.map(s=><Link key={s.name} href={s.href} className="map-target" style={{left:`${s.x}%`,top:`${s.y}%`,width:`${s.w}%`,height:`${s.h}%`}} aria-label={`${s.number} / ${s.name} — open station`} title={s.name} />)}
+     {stations.map(s=><Link key={s.name} href={s.href} className="map-target" data-station-number={s.number} style={{left:`${s.x}%`,top:`${s.y}%`,width:`${s.w}%`,height:`${s.h}%`}} aria-label={`${s.number} / ${s.name} — open station`} title={s.name} />)}
      <a className="map-social map-social-github" href={site.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub" />
      <a className="map-social map-social-linkedin" href={site.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" />
      <a className="map-social map-social-email" href="mailto:ventacularity@berkeley.edu" aria-label="Email" title="Email" />
