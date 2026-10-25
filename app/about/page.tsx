@@ -15,7 +15,7 @@ export default function About() {
       <article>
         <h2>Where it started</h2>
         <p>My dad introduced me to table tennis, having played competitively himself. I've played competitively for years and have had the opportunity to represent Team USA internationally.</p>
-        <p>My interest in engineering began in high school through the <a href="https://www.pltw.org/" target="_blank" rel="noopener noreferrer">Project Lead The Way (PLTW) ↗</a> curriculum. I learned Arduino programming and computer-aided design (CAD), building everything from catapults to hydraulic doors. I also joined my school&#39;s technology club and competed in glider competitions through <a href="https://mesa.ucop.edu/" target="_blank" rel="noopener noreferrer">Mathematics, Engineering, Science Achievement (MESA) ↗</a>.</p>
+        <p>My interest in engineering began in high school through the <a href="https://www.pltw.org/" target="_blank" rel="noopener noreferrer">Project Lead The Way (PLTW) ↗</a> curriculum. I learned Arduino programming and computer-aided design (CAD), building everything from catapults to hydraulic doors. I also joined my school&#39;s technology club and competed in glider competitions through the <a href="https://mesa.ucop.edu/" target="_blank" rel="noopener noreferrer">Mathematics, Engineering, Science Achievement (MESA) ↗</a> program.</p>
       </article>
       <article>
         <h2>Where it led</h2>
