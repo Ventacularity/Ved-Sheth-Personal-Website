@@ -19,7 +19,7 @@ export default function About() {
       </article>
       <article>
         <h2>Where it led</h2>
-        <p>At UC Berkeley, EECS 16B gave me more hands-on experience with circuits, including building an electric guitar amplifier. I also joined Cal Aero, where I eventually became Avionics Lead and work on the electronics and avionics systems for our aircraft.</p>
+        <p>At UC Berkeley, EECS 16B gave me more hands-on experience with circuits, including building an electric guitar amplifier. I also joined Cal Aero, where I eventually became Avionics Lead and now work on the electronics and avionics systems for our aircraft.</p>
         <p>Today, I keep exploring analog circuits, embedded systems, avionics, and digital design while competing in table tennis. Both engineering and sport have taught me to keep experimenting, improving, and pushing myself further.</p>
         <Link className="button button-ghost" href="/projects/">Explore my projects ↗</Link>
       </article>
