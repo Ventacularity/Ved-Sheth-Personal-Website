@@ -15,7 +15,7 @@ export default function About() {
       <article>
         <h2>Where it started</h2>
         <p>My dad introduced me to table tennis, having played competitively himself. What started as something we shared grew into a passion that eventually took me to the international stage with Team USA.</p>
-        <p>My interest in engineering began in high school through the Project Lead The Way (PLTW) curriculum. I learned Arduino programming and computer-aided design (CAD), building everything from catapults to hydraulic doors. I also joined my school's technology club and competed in MESA glider competitions.</p>
+        <p>My interest in engineering began in high school through the Project Lead The Way (PLTW) curriculum. I learned Arduino programming and computer-aided design (CAD), building everything from catapults to hydraulic doors. I also joined my school&#39;s technology club and competed in glider competitions through <a href="https://mesa.ucop.edu/" target="_blank" rel="noopener noreferrer">Mathematics, Engineering, Science Achievement (MESA) ↗</a>.</p>
       </article>
       <article>
         <h2>Where it led</h2>
