@@ -14,12 +14,12 @@ export default function About() {
     <section className="station-content about-split">
       <article>
         <h2>Where it started</h2>
-        <p>My dad introduced me to table tennis, having played competitively himself. What started as something we shared grew into a passion that eventually took me to the international stage with Team USA.</p>
-        <p>My interest in engineering began in high school through the Project Lead The Way (PLTW) curriculum. I learned Arduino programming and computer-aided design (CAD), building everything from catapults to hydraulic doors. I also joined my school&#39;s technology club and competed in glider competitions through <a href="https://mesa.ucop.edu/" target="_blank" rel="noopener noreferrer">Mathematics, Engineering, Science Achievement (MESA) ↗</a>.</p>
+        <p>My dad introduced me to table tennis, having played competitively himself. I've played competitively for years and have had the opportunity to represent Team USA internationally.</p>
+        <p>My interest in engineering began in high school through the <a href="https://www.pltw.org/" target="_blank" rel="noopener noreferrer">Project Lead The Way (PLTW) ↗</a> curriculum. I learned Arduino programming and computer-aided design (CAD), building everything from catapults to hydraulic doors. I also joined my school&#39;s technology club and competed in glider competitions through <a href="https://mesa.ucop.edu/" target="_blank" rel="noopener noreferrer">Mathematics, Engineering, Science Achievement (MESA) ↗</a>.</p>
       </article>
       <article>
         <h2>Where it led</h2>
-        <p>Then came UC Berkeley, and the rest is history. EECS 16B deepened my interest in circuits when my team built an electric guitar amplifier. I joined Cal Aero in February 2025, eventually becoming Avionics Lead and helping develop the electronics behind our aircraft.</p>
+        <p>At UC Berkeley, EECS 16B gave me more hands-on experience with circuits, including building an electric guitar amplifier. I also joined Cal Aero, where I became Avionics Lead and work on the electronics and avionics systems for our aircraft.</p>
         <p>Today, I keep exploring analog circuits, embedded systems, avionics, and digital design while competing in table tennis. Both engineering and sport have taught me to keep experimenting, improving, and pushing myself further.</p>
         <Link className="button button-ghost" href="/projects/">Explore my projects ↗</Link>
       </article>
